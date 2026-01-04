@@ -3,7 +3,7 @@ locals {
   solutions_scripts="https://github.com/ViktorUJ/cks/tree/master/tasks/cks/mock/02/worker/files/solutions"
   solutions_video="need to update . old version https://youtu.be/I8CPwcGbrG8"
   debug_output   = "false"
-  region         = "eu-north-1"
+  region         = "us-east-1"
   vpc_default_cidr  = "10.10.0.0/16"
 
   subnets = {
@@ -11,18 +11,18 @@ locals {
       "pub1" = {
         name = "AZ-1"
         cidr = "10.10.1.0/24"
-        az   = "eu-north-1a"
+        az   = "us-east-1a"
       }
       "pub2" = {
         name = "AZ-2"
         cidr = "10.10.2.0/24"
-        az   = "eu-north-1b"
+        az   = "us-east-1b"
       }
 
       "pub3" = {
         name = "AZ-3"
         cidr = "10.10.3.0/24"
-        az   = "eu-north-1c"
+        az   = "us-east-1c"
       }
 
     }
@@ -39,15 +39,15 @@ locals {
     "owner"           = "viktoruj@gmail.com"
   }
   k8_version           = "1.32.0"
-  node_type            = "spot"  # ondemand | spot
+  node_type            = "ondemand"  # ondemand | spot
   runtime              = "containerd" # docker  , cri-o  , containerd ( need test it )
   cni = {
       type = "calico" #calico , cilium
       disable_kube_proxy="false"
     }
-  instance_type        = "t4g.medium" # m5.large | t4g.medium
-  instance_type_worker = "t4g.medium" # m5.large | t4g.medium
- spot_additional_types= [ "t4g.medium" , "t4g.large" , "t4g.xlarge" ]
+  instance_type        = "t3.medium" # m5.large | t3.medium
+  instance_type_worker = "t3.medium" # m5.large | t3.medium
+ spot_additional_types= [ "t3.medium" , "t3.large" , "t3.xlarge" ]
 
   all_spot_subnet      = "true"
   ubuntu_version       = "22.04"

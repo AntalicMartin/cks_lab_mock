@@ -1,5 +1,5 @@
 locals {
-  region = "eu-north-1"
+  region = "us-east-1"
   aws    = "default"
   prefix = "cks-lab"
   tags = {
@@ -10,10 +10,10 @@ locals {
     "owner"           = "viktoruj@gmail.com"
   }
   k8_version           = "1.28.0"
-  node_type            = "spot"
+  node_type            = "ondemand"
   runtime              = "containerd" # docker  , cri-o  , containerd ( need test it )
-  instance_type        = "t4g.medium"
-  instance_type_worker = "t4g.small"
+  instance_type        = "t3.medium"
+  instance_type_worker = "t3.small"
   key_name             = ""
   ubuntu_version       = "20.04"
   ami_id               = ""
